@@ -15,8 +15,8 @@ export default {
       <div class="pg-img-wrapper">
         <img class="w-100" :src="img[0].image_url" :alt="name">
       </div>
-      <div class="pg-card-info h-100 d-flex py-2 flex-column justify-content-between">
-        <h5>{{name}}</h5>
+      <div class="pg-card-info h-100 d-flex p-2 flex-column justify-content-between">
+        <h5 class="text-white">{{name}}</h5>
         <span>{{type}}</span>
       </div>
     </div>
@@ -27,6 +27,7 @@ export default {
 .col{
   transition: all .2s;
   border-radius: 0 0 5px 5px;
+  cursor: pointer;
 }
 .col:hover{
   transform: scale(1.05);
