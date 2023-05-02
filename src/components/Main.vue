@@ -17,6 +17,11 @@ export default {
 <template>
   <main>
     <div class="pg-main-wrapper p-3">
+      <div class="pg-select-wrapper container w-25 mb-3">
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Select a type</option>
+        </select>
+      </div>
       <div class="container bg-white p-3">
         <div class="pg-card-counter bg-dark text-white p-3">
           <span class="fs-3">You found {{store.resultArray.length}} cards</span>

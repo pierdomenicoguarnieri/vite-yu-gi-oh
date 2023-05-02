@@ -15,7 +15,7 @@ export default {
       <div class="pg-img-wrapper">
         <img class="w-100" :src="img[0].image_url" :alt="name">
       </div>
-      <div class="pg-card-info h-100 d-flex flex-column justify-content-between">
+      <div class="pg-card-info h-100 d-flex py-2 flex-column justify-content-between">
         <h5>{{name}}</h5>
         <span>{{type}}</span>
       </div>
@@ -24,7 +24,15 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+.col{
+  transition: all .2s;
+  border-radius: 0 0 5px 5px;
+}
+.col:hover{
+  transform: scale(1.05);
+}
 .pg-card{
+  box-shadow: 0 0 10px rgba(#000, 0.4);
   .pg-card-info{
     background-color: #D48F38;
     min-height: 100px;
