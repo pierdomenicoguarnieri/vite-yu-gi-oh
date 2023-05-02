@@ -13,6 +13,17 @@ export default{
     return{
       store
     }
+  },
+  methods:{
+    getApi(){
+      axios.get(store.apiUrl + "?num=120&offset=0")
+      .then(result => {
+        store.resultArray = result.data.data;
+      })
+    }
+  },
+  mounted(){
+    this.getApi();
   }
 }
 </script>
