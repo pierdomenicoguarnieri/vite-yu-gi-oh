@@ -22,9 +22,13 @@ export default {
           <span class="fs-3">You found {{store.resultArray.length}} cards</span>
         </div>
         <div class="row row-cols-5 m-0">
-          <div class="col">
-            <Card/>
-          </div>
+          <Card
+            v-for="card in store.resultArray"
+            :key="card.id" 
+            :name="card.name"
+            :type="card.type"
+            :img="card.card_images"
+            />
         </div>
       </div>
     </div>
@@ -34,5 +38,8 @@ export default {
 <style lang="scss" scoped>
   main{
     background-color: #D48F38;
+    .pg-card-counter{
+      margin:0 12px;
+    }
   }
 </style>
