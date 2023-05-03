@@ -57,7 +57,7 @@ export default{
   <Header titolo="Vite Yu-Gi-Oh! API"/>
   <Loading v-if="store.isLoading"/>
   <div v-else>
-    <Main/>
+    <Main @newGetApi="getApi"/>
     <Footer @startSearch="createPrintArray"/>
   </div>
 </template>
