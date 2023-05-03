@@ -19,7 +19,12 @@ export default {
     <div class="pg-main-wrapper p-3">
       <div class="pg-select-wrapper container w-25 mb-3">
         <select class="form-select" aria-label="Default select example">
-          <option selected>Select a type</option>
+          <option selected @click="getCardType(null)">All cards</option>
+          <option
+            v-for="cardType in store.listType"
+            :value="cardType"
+            :key="cardType"
+            @click="getCardType(cardType)">{{cardType}}</option>
         </select>
       </div>
       <div class="container bg-white p-3">
