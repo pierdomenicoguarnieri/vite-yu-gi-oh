@@ -24,14 +24,14 @@ export default {
       </div>
       <div class="container bg-white p-3">
         <div class="pg-card-counter bg-dark text-white p-3">
-          <span class="fs-3">You found {{store.resultArray.length}} cards</span>
+          <span class="fs-3">{{store.resultArrayTotal.length}} cards founded, now viewing cards from {{store.cardOffset + 1}} to {{store.cardNumber + store.cardOffset}}</span>
         </div>
         <div class="row row-cols-5 m-0">
           <Card
-            v-for="card in store.resultArray"
+            v-for="card in store.printArray"
             :key="card.id" 
             :name="card.name"
-            :type="card.archetype || card.type"
+            :type="card.type"
             :img="card.card_images"
             />
         </div>

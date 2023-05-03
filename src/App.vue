@@ -28,6 +28,12 @@ export default{
         this.createPrintArray()
         store.isLoading = false;
       })
+    },
+    createPrintArray(){
+      store.isLoading = true;
+      store.printArray = [];
+      store.printArray.push(...store.resultArrayTotal.slice(store.cardOffset, (store.cardNumber + store.cardOffset)));
+      store.isLoading = false;
     }
   },
   mounted(){
@@ -41,7 +47,7 @@ export default{
   <Loading v-if="store.isLoading"/>
   <div v-else>
     <Main/>
-    <Footer @startSearch="getApi"/>
+    <Footer @startSearch="createPrintArray"/>
   </div>
 </template>
 
