@@ -21,14 +21,11 @@ export default{
   methods:{
     getApi(){
       store.isLoading = true;
-      axios.get(store.apiUrl, {
-        params:{
-          num: store.cardNumber,
-          offset: store.cardOffset
-        }
-      })
+      axios.get(store.apiUrl)
       .then(result => {
-        store.resultArray = result.data.data;
+        store.resultArrayTotal = [];
+        store.resultArrayTotal = result.data.data;
+        this.createPrintArray()
         store.isLoading = false;
       })
     }
