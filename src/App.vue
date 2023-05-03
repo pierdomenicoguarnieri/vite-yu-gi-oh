@@ -25,6 +25,13 @@ export default{
       .then(result => {
         store.resultArrayTotal = [];
         store.resultArrayTotal = result.data.data;
+        if(store.listType.length === 0){
+          store.resultArrayTotal.forEach(element =>{
+            if(!store.listType.includes(element.type)){
+              store.listType.push(element.type)
+            }
+          })
+        }
         this.createPrintArray()
         store.isLoading = false;
       })
