@@ -5,4 +5,5 @@ export const store = reactive({
   resultArray: [],
   cardNumber: 10,
   cardOffset: 0,
+  isLoading: true
 })

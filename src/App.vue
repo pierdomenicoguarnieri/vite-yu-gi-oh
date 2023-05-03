@@ -4,12 +4,14 @@ import {store} from "./data/store.js";
 import Header from "./components/Header.vue";
 import Main from "./components/Main.vue";
 import Footer from "./components/Footer.vue";
+import Loading from "./components/partials/Loading.vue";
 export default{
   name: "App",
   components:{
     Header,
     Main,
-    Footer
+    Footer,
+    Loading
   },
   data(){
     return{
@@ -18,6 +20,7 @@ export default{
   },
   methods:{
     getApi(){
+      store.isLoading = true;
       axios.get(store.apiUrl, {
         params:{
           num: store.cardNumber,
@@ -26,6 +29,7 @@ export default{
       })
       .then(result => {
         store.resultArray = result.data.data;
+        store.isLoading = false;
       })
     }
   },
@@ -36,9 +40,12 @@ export default{
 </script>
 
 <template>
-  <Header/>
-  <Main/>
-  <Footer @startSearch="getApi"/>
+  <Header titolo="Vite Yu-Gi-Oh! API"/>
+  <Loading v-if="store.isLoading"/>
+  <div v-else>
+    <Main/>
+    <Footer @startSearch="getApi"/>
+  </div>
 </template>
 
 <style lang="scss">

@@ -1,6 +1,9 @@
 <script>
 export default {
-  name: "Header"
+  name: "Header",
+  props:{
+    titolo: String
+  }
 }
 </script>
 
@@ -8,7 +11,7 @@ export default {
   <header class="bg-white">
     <div class="container h-100 d-flex align-items-center">
       <img src="/yugioh.svg" class="h-25 me-3" alt="Logo Yu-Gi-Oh">
-      <h1>Vite Yu-Gi-Oh! API</h1>
+      <h1>{{titolo}}</h1>
     </div>
   </header>
 </template>
