@@ -36,7 +36,7 @@ export default {
   box-shadow: 0 0 10px rgba(#000, 0.4);
   .pg-card-info{
     background-color: #D48F38;
-    min-height: 100px;
+    min-height: 150px;
   }
 }
 </style>
