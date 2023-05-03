@@ -36,7 +36,8 @@ export default {
       </div>
       <div class="container bg-white p-3">
         <div class="pg-card-counter bg-dark text-white p-3">
-          <span class="fs-3">{{store.resultArrayTotal.length}} cards founded, now viewing cards from {{store.cardOffset + 1}} to {{store.cardNumber + store.cardOffset}}</span>
+          <span v-if="store.resultArrayTotal.length > store.cardNumber" class="fs-3">{{store.resultArrayTotal.length}} cards founded, now viewing cards from {{store.cardOffset + 1}} to {{store.cardNumber + store.cardOffset}}</span>
+          <span v-else class="fs-3">{{store.resultArrayTotal.length}} cards founded, now viewing cards from {{store.cardOffset + 1}} to {{store.resultArrayTotal.length}}</span>
         </div>
         <div class="row row-cols-5 m-0">
           <Card
