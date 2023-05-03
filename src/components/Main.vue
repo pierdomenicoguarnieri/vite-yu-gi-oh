@@ -11,6 +11,13 @@ export default {
       store
     }
   },
+  methods:{
+    getCardType(cardType){
+      store.cardOffset = 0;
+      store.newType = cardType
+      this.$emit("newGetApi")
+    }
+  }
 }
 </script>
 
