@@ -21,7 +21,11 @@ export default{
   methods:{
     getApi(){
       store.isLoading = true;
-      axios.get(store.apiUrl)
+      axios.get(store.apiUrl, {
+        params:{
+          type: store.newType
+        }
+      })
       .then(result => {
         store.resultArrayTotal = [];
         store.resultArrayTotal = result.data.data;
