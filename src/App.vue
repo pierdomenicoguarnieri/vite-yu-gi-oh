@@ -3,11 +3,13 @@ import axios from "axios";
 import {store} from "./data/store.js";
 import Header from "./components/Header.vue";
 import Main from "./components/Main.vue";
+import Footer from "./components/Footer.vue";
 export default{
   name: "App",
   components:{
     Header,
-    Main
+    Main,
+    Footer
   },
   data(){
     return{
@@ -16,7 +18,12 @@ export default{
   },
   methods:{
     getApi(){
-      axios.get(store.apiUrl + "?num=120&offset=0")
+      axios.get(store.apiUrl, {
+        params:{
+          num: store.cardNumber,
+          offset: store.cardOffset
+        }
+      })
       .then(result => {
         store.resultArray = result.data.data;
       })
@@ -31,6 +38,7 @@ export default{
 <template>
   <Header/>
   <Main/>
+  <Footer @startSearch="getApi"/>
 </template>
 
 <style lang="scss">
