@@ -8,13 +8,14 @@ export default {
   },
   data(){
     return{
-      store
+      store,
+      cardType: null
     }
   },
   methods:{
-    getCardType(cardType){
+    getCardType(){
       store.cardOffset = 0;
-      store.newType = cardType
+      store.newType = this.cardType.length ? this.cardType : null;
       this.$emit("newGetApi")
     }
   }
@@ -25,13 +26,12 @@ export default {
   <main>
     <div class="pg-main-wrapper p-3">
       <div class="pg-select-wrapper container w-25 mb-3">
-        <select class="form-select" aria-label="Default select example">
-          <option @click="getCardType(null)">All cards</option>
+        <select v-model="cardType" @change="getCardType" class="form-select" aria-label="Default select example" aria-placeholder="Select a type">
+          <option value="">All cards</option>
           <option
             v-for="cardType in store.listType"
             :value="cardType"
-            :key="cardType"
-            @click="getCardType(cardType)">{{cardType}}</option>
+            :key="cardType">{{cardType}}</option>
         </select>
       </div>
       <div class="container bg-white p-3">
